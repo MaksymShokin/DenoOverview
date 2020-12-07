@@ -1,6 +1,17 @@
-let message: string = 'message'
+const message = 'Hello world';
 
-console.log(message)
+console.log(message);
 
-// execute deno 
+const encoder = new TextEncoder();
+const data = encoder.encode(message);
+
+Deno.writeFile('hello.txt', data).then(() => {
+  console.log('wrote-to-file');
+});
+
+export {};
+// execute deno
 // deno run app.ts
+
+// run with writing permission
+// deno run --allow-write app.ts
